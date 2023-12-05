@@ -1,0 +1,30 @@
+---
+import { i18n } from './Team.i18n';
+import TeamMember from './TeamMember.astro';
+
+const language: string = Astro.request.headers.get('accept-language')?.startsWith('pl') ? 'pl' : 'en';
+---
+<div class="bg-gray-900 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 text-center lg:px-8">
+      <div class="mx-auto max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">{i18n[language].heading}</h2>
+        <p class="mt-4 text-lg leading-8 text-gray-400">{i18n[language].subheading}</p>
+      </div>
+      <ul class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8" role="list">
+        <TeamMember
+            name="Bartek Różański"
+            imageUrl="/bartek.jpeg"
+            role="Senior Security Developer"
+            twitter="barozanski"
+            linkedIn="bartosz-r%C3%B3%C5%BCa%C5%84ski/"
+        />
+        <TeamMember
+            name="Maciek Misztal"
+            imageUrl="/maciek.jpeg"
+            role="Microsoft MVP, Cloud Architect"
+            twitter="mmisztal1980"
+            linkedIn="maciej-misztal-bb424221/"
+        />
+      </ul>
+    </div>
+  </div>

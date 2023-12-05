@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Feature from "../components/Feature.astro";
+import Hero from "../components/Hero.astro";
+import Team from "../components/Team.astro";
+
+import { i18n } from "./index.i18n";
+
+const language: string = Astro.request.headers
+  .get("accept-language")
+  ?.startsWith("pl")
+  ? "pl"
+  : "en";
+---
+
+<Layout title={`${i18n[language].title}`}>
+  <main>
+    <Hero />
+    <Feature />
+    <Team />
+  </main>
+</Layout>

@@ -1,0 +1,82 @@
+---
+import { i18n } from './Feature.i18n';
+import FeatureCard from './FeatureCard.astro';
+
+const language: string = Astro.request.headers.get('accept-language')?.startsWith('pl') ? 'pl' : 'en';
+---
+<div class="bg-white py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:text-center">
+        <h2 class="text-base font-semibold leading-7 text-indigo-600">
+          {i18n[language].joinUs}
+        </h2>
+        <p
+          class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+        >
+          {i18n[language].comeAndListen}
+        </p>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
+          Suspendisse eget egestas a elementum pulvinar et feugiat blandit at.
+          In mi viverra elit nunc.
+        </p>
+      </div>
+      <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+        <dl
+          class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16"
+        >
+          <!-- <FeatureCard
+            name={`${i18n[language].students}`}
+            icon='mdi:school-outline'
+            description=''
+          /> -->
+          <FeatureCard
+          name={`${i18n[language].backend}`}
+          icon='mdi:code-braces'
+          description={`${i18n[language].backend_description}`}
+          />
+          <FeatureCard
+          name={`${i18n[language].frontend}`}
+          icon='mdi:language-html5'
+          description={`${i18n[language].frontend_description}`}
+          />
+          <FeatureCard
+          name={`${i18n[language].mobile}`}
+          icon='mdi:cellphone'
+          description={`${i18n[language].mobile_description}`}
+          />
+          <FeatureCard
+          name={`${i18n[language].testing}`}
+          icon='mdi:test-tube'
+          description={`${i18n[language].testing_description}`}
+          />
+          <FeatureCard
+          name={`${i18n[language].cloud}`}
+          icon='mdi:cloud-braces'
+          description={`${i18n[language].cloud_description}`}
+          />
+          <FeatureCard
+          name={`${i18n[language].security}`}
+          icon='mdi:fingerprint'
+          description={`${i18n[language].security_description}`}
+          />
+          <FeatureCard
+          name={`${i18n[language].databases}`}
+          icon='mdi:database'
+          description={`${i18n[language].databases_description}`}
+          />
+          <FeatureCard
+          name={`${i18n[language].machineLearning}`}
+          icon='mdi:school-outline'
+          description={`${i18n[language].machineLearning_description}`}
+          />
+
+          <FeatureCard
+          name={`${i18n[language].devops}`}
+          icon='mdi:infinity'
+          description={`${i18n[language].devops_description}`}
+          />
+        </dl>
+      </div>
+    </div>
+  </div>

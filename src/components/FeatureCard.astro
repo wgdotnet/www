@@ -1,0 +1,28 @@
+---
+import { Icon } from 'astro-icon'
+
+import AcademicCap from 'astro-heroicons/outline/AcademicCap.astro'
+
+interface Props {
+  name: string;
+  icon: string;
+  description: string;
+}
+const { name, icon, description } = Astro.props;
+---
+<div class="relative pl-16">
+    <dt class="text-base font-semibold leading-7 text-gray-900">
+      <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+        <Icon name={`${icon}`} class="h-6 w-6 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="0.25"
+          stroke="currentColor"
+          aria-hidden="true" />
+      </div>
+      <span>{name}</span>
+    </dt>
+    <dd class="mt-2 text-base leading-7 text-gray-600">
+      {description}
+    </dd>
+  </div>

@@ -1,0 +1,36 @@
+---
+import Footer from "../components/Footer.astro";
+const {frontmatter} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon2.svg" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{frontmatter.title}</title>
+  </head>
+  <body class="font-sans antialiased text-gray-900">
+    <div class="bg-white px-6 py-32 lg:px-8">
+      <div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
+        <div class="flex lg:flex-1">
+          <a class="-m-1.5 p-1.5" href="/">
+            <img
+              class="h-16 w-auto"
+              src="/wgdotnet-logo-black.svg"
+              alt=""
+            />
+          </a>
+        </div>
+        <article class="prose lg:prose-xl prose-slate">
+          <slot />
+        </article>
+      </div>
+      </div>
+    <Footer />
+  </body>
+</html>
