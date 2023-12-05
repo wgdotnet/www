@@ -1,0 +1,22 @@
+name: "npm"
+
+on:
+  workflow_call:
+    inputs:
+      nodeVersion:
+        description: "Node.js version"
+        type: number
+        required: true
+
+jobs:
+  npm:
+    name: npm
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: "0"
+    - name: install node
+      run: |
+        curl -sL https://deb.nodesource.com/setup_${{ inputs.nodeVersion }}.x | sudo -E bash -
+      shell: bash

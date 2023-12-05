@@ -1,0 +1,33 @@
+name: ci
+
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
+on:
+  push:
+    branches:
+    - main
+    - feature/*
+    paths:
+    - ".github/workflows/**"
+    - "src/**"
+    - "public/**"
+
+  pull_request:
+    types:
+    - closed
+    branches:
+    - main
+    paths:
+    - ".github/workflows/**"
+    - "src/**"
+    - "public/**"
+
+  workflow_dispatch:
+    inputs: {}
+
+jobs:
+  helm:
+    uses: ./.github/workflows/npm.yml
+    with:
+      nodeVersion: 20
