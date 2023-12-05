@@ -41,3 +41,11 @@ jobs:
       run: |
         node --version
       shell: bash
+    - name: npm install
+      run: |
+        npm install
+      shell: bash
+    - name: npm run build
+      run: |
+        npm run build
+      shell: bash
