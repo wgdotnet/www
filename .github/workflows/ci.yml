@@ -27,7 +27,7 @@ on:
     inputs: {}
 
 jobs:
-  helm:
+  node:
     uses: ./.github/workflows/npm.yml
     with:
       nodeVersion: 20
