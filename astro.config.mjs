@@ -25,6 +25,7 @@ export default defineConfig({
   },
   output: 'server',
   adapter: cloudflare(),
+  // https://github.com/natemoo-re/astro-icon/issues/35#issuecomment-1578101502
   vite: {
     resolve: {
       alias: {
