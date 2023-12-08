@@ -17,7 +17,8 @@ export default defineConfig({
     }),
     tailwind({
       // disable default injected base.css
-      applyBaseStyles: false
+      applyBaseStyles: false,
+      configFile: './tailwind.config.cjs'
     }
     )],
   load: {
