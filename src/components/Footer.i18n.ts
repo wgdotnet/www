@@ -2,7 +2,7 @@ export const i18n: { [k1: string]: { [k2: string]: any } } = {
     en: {
       wgdotnet: 'The Warsaw .NET Usergroup',
       supportedBy: 'Supported by',
-      logoCaption: 'Przyjazna przestrzeń dla pasjonatów .NET',
+      logoCaption: 'A friendly space for .NET enthusiasts',
       aboutUS: 'O nas',
       contactUs: 'Kontakt',
       legal: 'Informacje prawne',
@@ -11,7 +11,7 @@ export const i18n: { [k1: string]: { [k2: string]: any } } = {
     pl: {
       wgdotnet: 'Warszawska Grupa .NET',
       supportedBy: 'Wspierają nas',
-      logoCaption: 'A friendly space for .NET enthusiasts',
+      logoCaption: 'Przyjazna przestrzeń dla pasjonatów .NET',
       aboutUS: 'About us',
       contactUs: 'Contact us',
       legal: 'Legal',
