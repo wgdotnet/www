@@ -25,7 +25,7 @@ export const i18n: { [k1: string]: { [k2: string]: any } } = {
     },
     pl: {
       joinUs: 'Dołącz do społeczności',
-      whyJoin: 'Spotkania dają szansę na nawiązanie kontaktu z rówieśnikami i budowanie społeczności opartej na współpracy. Uczestnictwo zapewnia kontakt z nowymi technologiami i spostrzeżeniami branżowymi, promując rozwój osobisty i zawodowy',
+      whyJoin: 'Spotkania dają szansę na nawiązanie kontaktu z rówieśnikami i budowanie społeczności opartej na współpracy. Uczestnictwo zapewnia kontakt z nowymi technologiami i nowinkami branżowymi, promując rozwój osobisty i zawodowy',
       comeAndListen: 'Przyjdź posłuchać najlepszych specjalistów z naszej społeczności',
       students: 'Studenci',
       security: 'Bezpieczeństwo',
