@@ -1,7 +1,7 @@
 export const i18n: { [k1: string]: { [k2: string]: any } } = {
     en: {
       joinUs: 'Join the community',
-      whyJoin: 'Attending a programming meetup offers valuable opportunities for both personal and professional growth. It provides a platform to network with like-minded individuals, fostering a sense of community and collaboration within the tech industry. Additionally, these gatherings often feature expert speakers, workshops, and discussions that expose attendees to new technologies, best practices, and diverse perspectives, enhancing their skills and staying abreast of the latest trends in the ever-evolving field of programming.',
+      whyJoin: 'Meetups offer a chance to connect with peers, fostering a collaborative community. Attending provides exposure to new technologies and industry insights, promoting both personal and professional growth',
       comeAndListen: 'Come and listen to the best specialists in our community',
       students: 'Students',
       security: 'Security',
@@ -25,7 +25,7 @@ export const i18n: { [k1: string]: { [k2: string]: any } } = {
     },
     pl: {
       joinUs: 'Dołącz do społeczności',
-      whyJoin: 'Udział w spotkaniu programistycznym oferuje cenne możliwości rozwoju osobistego i zawodowego. Zapewnia platformę do nawiązywania kontaktów z osobami o podobnych poglądach, wspierając poczucie wspólnoty i współpracy w branży technologicznej. Ponadto spotkania te często obejmują prelegentów-ekspertów, warsztaty i dyskusje, które pozwalają uczestnikom zapoznać się z nowymi technologiami, najlepszymi praktykami i różnorodnymi perspektywami, podnosząc ich umiejętności i będąc na bieżąco z najnowszymi trendami w stale rozwijającej się dziedzinie programowania.',
+      whyJoin: 'Spotkania dają szansę na nawiązanie kontaktu z rówieśnikami i budowanie społeczności opartej na współpracy. Uczestnictwo zapewnia kontakt z nowymi technologiami i spostrzeżeniami branżowymi, promując rozwój osobisty i zawodowy',
       comeAndListen: 'Przyjdź posłuchać najlepszych specjalistów z naszej społeczności',
       students: 'Studenci',
       security: 'Bezpieczeństwo',
