@@ -1,10 +1,10 @@
 export const i18n: { [k1: string]: { [k2: string]: any } } = {
     en: {
       heading: 'Meet the wgdotnet leaders',
-      subheading: 'They\'re in Charge, But They\'re Totally Approachable'
+      subheading: 'For community, by community'
     },
     pl: {
       heading: 'Poznaj liderów wgdotnet',
-      subheading: 'Prowadzą meetup. Można z nimi porozmawiać o wszystkim'
+      subheading: 'Od społeczności, dla społeczności'
     },
   } as const;

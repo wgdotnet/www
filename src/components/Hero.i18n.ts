@@ -1,6 +1,6 @@
 export const i18n: { [k1: string]: { [k2: string]: any } } = {
     en: {
-      headline: 'Connect with #wgdotnet',
+      headline: 'Join #wgdotnet',
       subHeadline: 'Be a part of something bigger. Networking, Learning, and Fun'
     },
     pl: {
