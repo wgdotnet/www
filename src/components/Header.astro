@@ -4,6 +4,12 @@ let isMenuOpen: boolean = false;
 function toggleMenu() {
   isMenuOpen = !isMenuOpen;
 }
+
+interface Props {
+  color: string
+}
+
+const { color } = Astro.props;
 ---
 <header class="absolute inset-x-0 top-0 z-50">
   <nav
@@ -12,7 +18,14 @@ function toggleMenu() {
     <div class="flex lg:flex-1">
       <a class="-m-1.5 p-1.5" href="/">
         <span class="sr-only">wgdotnet</span>
-        <img class="h-16 w-auto" src="/wgdotnet-logo-white.svg" alt="" />
+        {
+          color === "white" &&
+          <img class="h-16 w-auto" src="/wgdotnet-logo-white.svg" alt="" />
+        }
+        {
+          color !== "white" &&
+          <img class="h-16 w-auto" src="/wgdotnet-logo-black.svg" alt="" />
+        }
       </a>
     </div>
     <div class="flex lg:hidden">
@@ -37,9 +50,18 @@ function toggleMenu() {
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
+    {
+      color === "white" &&
       <a class="text-lg font-bold leading-6 text-white" href="/2023">
         2023/2024
       </a>
+    }
+    {
+      color !== "white" &&
+      <a class="text-lg font-bold leading-6 text-black" href="/2023">
+        2023/2024
+      </a>
+    }
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
 

@@ -1,4 +1,4 @@
-export const i18n: { [k1: string]: { [k2: string]: any } } = {
+export const i18n: { [k1: string]: { [k2: string]: string } } = {
     en: {
       supportedBy: 'Supported by',
     },
