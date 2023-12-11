@@ -1,4 +1,4 @@
-export const i18n: { [k1: string]: { [k2: string]: any } } = {
+export const i18n: { [k1: string]: { [k2: string]: string } } = {
     en: {
       joinUs: 'Join the community',
       whyJoin: 'Meetups offer a chance to connect with peers, fostering a collaborative community. Attending provides exposure to new technologies and industry insights, promoting both personal and professional growth',

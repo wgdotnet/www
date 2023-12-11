@@ -4,16 +4,6 @@ import { i18n } from './Hero.i18n';
 const language: string = Astro.request.headers.get('accept-language')?.startsWith('pl') ? 'pl' : 'en';
 ---
 <div class="relative isolate overflow-hidden pt-14">
-    <!-- <img
-      class="absolute inset-0 -z-10 h-full w-full object-cover"
-      src="https://images.unsplash.com/photo-1496046906094-ab55b3670ea4?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&fit=crop&w=2371&q=80&amp;blend=111827&amp;sat=-100&amp;exp=15&amp;blend-mode=multiply"
-      alt="warsaw panorama"
-    /> -->
-    <!-- <img
-      class="absolute inset-0 -z-10 h-full w-full object-cover"
-      src="https://images.unsplash.com/photo-1519197924294-4ba991a11128?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&fit=crop&w=2371&q=80&amp;blend=111827&amp;sat=-100&amp;exp=15&amp;blend-mode=multiply"
-      alt="warsaw panorama"
-    /> -->
     <img
       class="absolute inset-0 -z-10 h-full w-full object-cover"
       src="https://images.unsplash.com/photo-1519197924294-4ba991a11128?ixlib=rb-4.0.3&amp;auto=format&fit=crop&w=2371&q=80&amp;sat=-0&amp;exp=-15&amp;"

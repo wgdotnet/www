@@ -1,4 +1,4 @@
-export const i18n: { [k1: string]: { [k2: string]: any } } = {
+export const i18n: { [k1: string]: { [k2: string]: string } } = {
   en: {
     heading: 'Page not found',
     message: 'Sorry, we couldn’t find the page you’re looking for.',
