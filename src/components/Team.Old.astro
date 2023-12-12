@@ -1,0 +1,71 @@
+---
+import { i18n } from './Team.Old.i18n';
+import TeamMember from './TeamMember.astro';
+import type { TeamMemberModel } from './TeamMember.Model';
+
+const data: TeamMemberModel[] = [
+  {
+    name: 'Maja Ciemienga',
+    years: '2006 - ?',
+    imageUrl: '/maja.jpeg',
+    role: 'Global Enterprise Architect',
+    linkedIn: 'majaciemienga/',
+  },
+  {
+    name: 'Michał Grzegorzewski',
+    years: '2006 - ?',
+    imageUrl: '/bartek.jpeg',
+    role: 'TBA',
+    twitter: 'barozanski',
+    linkedIn: 'bartosz-r%C3%B3%C5%BCa%C5%84ski/',
+  },
+  {
+    name: 'Arkadiusz Waśniewski',
+    years: '2008 - 2009',
+    imageUrl: '/arek.jpeg',
+    role: 'Senior Engineer / DevOps',
+    twitter: 'wasniewski',
+    linkedIn: 'arkadiuszwasniewski/',
+  },
+  {
+    name: 'Szymon Kulec',
+    years: '2015 - 2018',
+    imageUrl: '/szymon.jpeg',
+    role: 'Dotnetos co-founder, ex Microsoft MVP',
+    twitter: 'scooletz',
+    linkedIn: 'szymon-kulec/',
+  },
+  {
+    name: 'Sebastian Solnica',
+    years: '2018 - 2022',
+    imageUrl: '/sebastian.jpeg',
+    role: 'Software Engineer',
+    linkedIn: 'ssolnica/',
+  },
+  {
+    name: 'Konrad Banaszek',
+    years: '2018 - 2022',
+    imageUrl: '/konrad.jpeg',
+    role: 'Software Engineer, Architect / Tech Lead',
+    twitter: 'thecorrado',
+    linkedIn: 'konradbanaszek/',
+  },
+];
+
+const language: string = Astro.request.headers.get('accept-language')?.startsWith('pl') ? 'pl' : 'en';
+---
+<div class="bg-gray-900 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 text-center lg:px-8">
+      <div class="mx-auto max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">{i18n[language].heading}</h2>
+        <p class="mt-4 text-lg leading-8 text-gray-400">{i18n[language].subheading}</p>
+      </div>
+      <ul class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8" role="list">
+        {data &&
+          data.map((member) => (
+            <TeamMember {...member} />
+          ))
+        }
+      </ul>
+    </div>
+  </div>

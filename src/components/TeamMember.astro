@@ -1,17 +1,21 @@
 ---
 interface Props {
   name: string;
+  years?: string;
   imageUrl: string;
   role: string;
-  twitter: string;
-  linkedIn: string;
+  twitter?: string;
+  linkedIn?: string;
 }
 
-const { name, imageUrl, role, twitter, linkedIn } = Astro.props;
+const { name, years, imageUrl, role, twitter, linkedIn } = Astro.props;
 ---
 <li class="rounded-2xl bg-gray-800 px-8 py-10">
     <img class="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" src={`${imageUrl}`} alt="">
     <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-white">{name}</h3>
+    { years &&
+      <p class="text-sm leading-6 text-gray-400">{years}</p>
+    }
     <p class="text-sm leading-6 text-gray-400">{role}</p>
     <ul class="mt-6 flex justify-center gap-x-6" role="list">
     { twitter &&
