@@ -1,4 +1,7 @@
 ---
+import { i18n } from './Header.i18n';
+const language: string = Astro.request.headers.get('accept-language')?.startsWith('pl') ? 'pl' : 'en';
+
 let isMenuOpen: boolean = false;
 
 function toggleMenu() {
@@ -55,11 +58,17 @@ const { color } = Astro.props;
       <a class="text-lg font-bold leading-6 text-white" href="/2023">
         2023/2024
       </a>
+      <a class="text-lg font-bold leading-6 text-white" href={`/${language}/about`}>
+        {i18n[language].aboutUs}
+      </a>
     }
     {
       color !== "white" &&
       <a class="text-lg font-bold leading-6 text-black" href="/2023">
         2023/2024
+      </a>
+      <a class="text-lg font-bold leading-6 text-black" href={`/${language}/about`}>
+        {i18n[language].aboutUs}
       </a>
     }
     </div>
