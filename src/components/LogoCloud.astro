@@ -1,7 +1,8 @@
 ---
 import { i18n } from './LogoCloud.i18n';
+import { getLanguage } from "./Language";
 
-const language: string = Astro.request.headers.get('accept-language')?.startsWith('pl') ? 'pl' : 'en';
+const language: string = getLanguage(Astro.request.headers);
 ---
 <div class="bg-gray-900 py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">

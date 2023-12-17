@@ -1,5 +1,6 @@
 ---
 import { i18n } from "./Team.Old.i18n";
+import { getLanguage } from "./Language";
 import TeamMember from "./TeamMember.astro";
 import type { TeamMemberModel } from "./TeamMember.Model";
 
@@ -67,11 +68,7 @@ const data: TeamMemberModel[] = [
   },
 ];
 
-const language: string = Astro.request.headers
-  .get("accept-language")
-  ?.startsWith("pl")
-  ? "pl"
-  : "en";
+const language: string = getLanguage(Astro.request.headers);
 ---
 
 <div class="bg-gray-900 py-24 sm:py-32">

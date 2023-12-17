@@ -1,14 +1,24 @@
 ---
 import { i18n } from "./Header.i18n";
-const language: string = Astro.request.headers
-  .get("accept-language")
-  ?.startsWith("pl")
-  ? "pl"
-  : "en";
+import { getLanguage } from "./Language";
+import type { NavLinkModel } from "./Header";
+
+const language: string = getLanguage(Astro.request.headers);
 
 interface Props {
   color: string;
 }
+
+const data: NavLinkModel[] = [
+  {
+    href: "/2023",
+    text: "2023/2024",
+  },
+  {
+    href: `/${language}/about`,
+    text: i18n[language].aboutUs,
+  },
+];
 
 const { color } = Astro.props;
 ---
@@ -56,24 +66,13 @@ const { color } = Astro.props;
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
-      <!-- {
-      color === "white" &&
-      <a class="text-lg font-bold leading-6 text-white" href="/2023">
-        2023/2024
-      </a>
-      <a class="text-lg font-bold leading-6 text-white" href={`/${language}/about`}>
-        {i18n[language].aboutUs}
-      </a>
-    }
-    {
-      color !== "white" &&
-      <a class="text-lg font-bold leading-6 text-black" href="/2023">
-        2023/2024
-      </a>
-      <a class="text-lg font-bold leading-6 text-black" href={`/${language}/about`}>
-        {i18n[language].aboutUs}
-      </a>
-    } -->
+      {
+        data && data.map(link => (
+          <a class={`text-lg font-bold leading-6 text-${color}`} href={link.href}>
+            {link.text}
+          </a>
+        ))
+      }
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end"></div>
   </nav>
@@ -111,15 +110,19 @@ const { color } = Astro.props;
       <div class="mt-6 flow-root">
         <div class="-my-6 divide-y divide-gray-500/25">
           <div class="space-y-2 py-6">
-            <a
-              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
-              href="/2023">2023/2024</a>
+            {
+              data && data.map(link => (
+              <a
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
+                href={link.href}>{link.text}</a>
+              ))
+            }
           </div>
         </div>
       </div>
     </div>
   </div>
-  <script>
+  <script is:inline>
     function toggle() {
       const item = document.getElementById("mobile-menu");
       if (item !== undefined && item?.style.display === "none") {
@@ -130,9 +133,9 @@ const { color } = Astro.props;
     }
     const ids = ["closeNavMenu", "navMenuHamburger"];
     ids.forEach((id) => {
-      console.log(`adding .click to ${id}`)
       const button = document.getElementById(id);
       button?.addEventListener("click", () => {
+        console.log(`Clicked ${id}`);
         toggle();
       });
     });

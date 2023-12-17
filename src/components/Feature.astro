@@ -1,8 +1,9 @@
 ---
 import { i18n } from './Feature.i18n';
+import { getLanguage } from "./Language";
 import FeatureCard from './FeatureCard.astro';
 
-const language: string = Astro.request.headers.get('accept-language')?.startsWith('pl') ? 'pl' : 'en';
+const language: string = getLanguage(Astro.request.headers);
 ---
 <div class="bg-white py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">

@@ -1,7 +1,8 @@
 ---
 import { i18n } from './Hero.i18n';
+import { getLanguage } from "./Language";
 
-const language: string = Astro.request.headers.get('accept-language')?.startsWith('pl') ? 'pl' : 'en';
+const language: string = getLanguage(Astro.request.headers);
 ---
 <div class="relative isolate overflow-hidden pt-14">
     <img
