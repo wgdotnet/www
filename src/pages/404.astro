@@ -1,12 +1,9 @@
 ---
 import { i18n } from "./404.i18n";
+import { getLanguage } from "../components/Language";
 import Layout from "../layouts/Layout.astro";
 
-const language: string = Astro.request.headers
-  .get("accept-language")
-  ?.startsWith("pl")
-  ? "pl"
-  : "en";
+const language: string = getLanguage(Astro.request.headers);
 ---
 
 <Layout title="Page not found">

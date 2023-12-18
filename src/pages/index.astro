@@ -5,12 +5,9 @@ import Hero from "../components/Hero.astro";
 import Team from "../components/Team.astro";
 
 import { i18n } from "./index.i18n";
+import { getLanguage } from "../components/Language";
 
-const language: string = Astro.request.headers
-  .get("accept-language")
-  ?.startsWith("pl")
-  ? "pl"
-  : "en";
+const language: string = getLanguage(Astro.request.headers);
 ---
 
 <Layout title={`${i18n[language].title}`}>
