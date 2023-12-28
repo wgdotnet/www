@@ -1,8 +1,9 @@
 ---
 import { i18n } from './Footer.i18n';
+import { getLanguage } from "./Language";
 
 const year  = new Date().getFullYear();
-const language: string = Astro.request.headers.get('accept-language')?.startsWith('pl') ? 'pl' : 'en';
+const language: string = getLanguage(Astro.request.headers);
 ---
 <footer class="bg-gray-900" aria-labelledby="footer-heading">
     <h2 class="sr-only" id="footer-heading">Footer</h2>

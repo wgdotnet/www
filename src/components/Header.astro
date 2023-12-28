@@ -1,38 +1,51 @@
 ---
-import { i18n } from './Header.i18n';
-const language: string = Astro.request.headers.get('accept-language')?.startsWith('pl') ? 'pl' : 'en';
+import { i18n } from "./Header.i18n";
+import { getLanguage } from "./Language";
+import type { NavLinkModel } from "./Header";
 
-let isMenuOpen: boolean = false;
-
-function toggleMenu() {
-  isMenuOpen = !isMenuOpen;
-}
+const language: string = getLanguage(Astro.request.headers);
 
 interface Props {
-  color: string
+  color: string;
 }
+
+const data: NavLinkModel[] = [
+  {
+    href: "/2023",
+    text: "2023/2024",
+  },
+  {
+    href: `/${language}/about`,
+    text: i18n[language].aboutUs,
+  },
+];
 
 const { color } = Astro.props;
 ---
+
 <header class="absolute inset-x-0 top-0 z-50">
   <nav
     class="flex items-center justify-between p-6 lg:px-8"
-    aria-label="Global">
+    aria-label="Global"
+  >
     <div class="flex lg:flex-1">
       <a class="-m-1.5 p-1.5" href="/">
         <span class="sr-only">wgdotnet</span>
         {
-          color === "white" &&
-          <img class="h-16 w-auto" src="/wgdotnet-logo-white.svg" alt="" />
+          color === "white" && (
+            <img class="h-16 w-auto" src="/wgdotnet-logo-white.svg" alt="" />
+          )
         }
         {
-          color !== "white" &&
-          <img class="h-16 w-auto" src="/wgdotnet-logo-black.svg" alt="" />
+          color !== "white" && (
+            <img class="h-16 w-auto" src="/wgdotnet-logo-black.svg" alt="" />
+          )
         }
       </a>
     </div>
     <div class="flex lg:hidden">
-      <button id="navMenuHamburger"
+      <button
+        id="navMenuHamburger"
         class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"
         type="button"
       >
@@ -53,42 +66,31 @@ const { color } = Astro.props;
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
-    {
-      color === "white" &&
-      <a class="text-lg font-bold leading-6 text-white" href="/2023">
-        2023/2024
-      </a>
-      <a class="text-lg font-bold leading-6 text-white" href={`/${language}/about`}>
-        {i18n[language].aboutUs}
-      </a>
-    }
-    {
-      color !== "white" &&
-      <a class="text-lg font-bold leading-6 text-black" href="/2023">
-        2023/2024
-      </a>
-      <a class="text-lg font-bold leading-6 text-black" href={`/${language}/about`}>
-        {i18n[language].aboutUs}
-      </a>
-    }
+      {
+        data && data.map(link => (
+          <a class={`text-lg font-bold leading-6 text-${color}`} href={link.href}>
+            {link.text}
+          </a>
+        ))
+      }
     </div>
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-
-    </div>
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end"></div>
   </nav>
   <!-- Mobile menu, show/hide based on menu open state.-->
-  <div class="lg:hidden" role="dialog" aria-modal="true">
-    <!-- Background backdrop, show/hide based on slide-over state.-->
-    <div class="fixed inset-0 z-50"></div>
-    <div id="navMenu"
-      class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10"
-    >
+  <div id="mobile-menu" class="hidden" role="dialog" aria-modal="true">
+    <!-- Background backdrop, show/hide based on slide-over state. -->
+    <div
+      id="navMenu"
+      class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
       <div class="flex items-center justify-between">
-        <a class="-m-1.5 p-1.5" href="#">
+        <a class="-m-1.5 p-1.5" href="/">
           <span class="sr-only">Your Company</span>
           <img class="h-8 w-auto" src="/wgdotnet-logo-white.svg" alt="" />
         </a>
-        <button id="closeNavMenu" class="-m-2.5 rounded-md p-2.5 text-gray-400" type="button">
+        <button
+          id="closeNavMenu"
+          class="-m-2.5 rounded-md p-2.5 text-gray-400"
+          type="button">
           <span class="sr-only">Close menu</span>
           <svg
             class="h-6 w-6"
@@ -96,8 +98,7 @@ const { color } = Astro.props;
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            aria-hidden="true"
-          >
+            aria-hidden="true">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -108,14 +109,31 @@ const { color } = Astro.props;
       <div class="mt-6 flow-root">
         <div class="-my-6 divide-y divide-gray-500/25">
           <div class="space-y-2 py-6">
-            <a
-              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
-              href="/2023">2023/2024</a
-            >
+            {
+              data && data.map(link => (
+              <a
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
+                href={link.href}>{link.text}</a>
+              ))
+            }
           </div>
         </div>
       </div>
     </div>
   </div>
+  <script is:inline>
+    function toggle() {
+      const menu = document.getElementById("mobile-menu");
+      const _class = "hidden";
+      menu.classList.toggle(_class);
+    }
+    const ids = ["closeNavMenu", "navMenuHamburger"];
+    ids.forEach((id) => {
+      const button = document.getElementById(id);
+      button?.addEventListener("click", () => {
+        console.log(`Clicked ${id}`);
+        toggle();
+      });
+    });
+  </script>
 </header>
-<!-- </div> -->
