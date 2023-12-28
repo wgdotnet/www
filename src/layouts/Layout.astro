@@ -25,13 +25,4 @@ const { title } = Astro.props;
     <slot />
     <Footer />
   </body>
-  <script>
-    document.querySelector('#navMenuHamburger')?.addEventListener('click', () => {
-      document.querySelector('#navMenu')?.classList.toggle('hidden');
-    });
-
-    document.querySelector('#closeNavMenu')?.addEventListener('click', () => {
-      document.querySelector('#navMenu')?.classList.toggle('hidden');
-    });
-  </script>
 </html>
