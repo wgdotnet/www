@@ -63,6 +63,7 @@ const language: string = getLanguage(Astro.request.headers);
             <div class="mt-10 md:mt-0">
               <h3 class="text-sm font-semibold leading-6 text-white">{i18n[language].legal}</h3>
               <ul class="mt-6 space-y-4" role="list">
+                <li><a class="text-sm leading-6 text-gray-300 hover:text-white" href={`/${language}/terms`}>{i18n[language].terms}</a></li>
                 <li><a class="text-sm leading-6 text-gray-300 hover:text-white" href="/privacy">{i18n[language].privacy}</a></li>
               </ul>
             </div>

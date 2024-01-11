@@ -6,7 +6,8 @@ export const i18n: { [k1: string]: { [k2: string]: string } } = {
       aboutUs: 'About us',
       contactUs: 'Contact us',
       legal: 'Legal',
-      privacy: 'Privacy policy'
+      privacy: 'Privacy policy',
+      terms: 'Terms & Conditions'
     },
     pl: {
       wgdotnet: 'Warszawska Grupa .NET',
@@ -15,6 +16,7 @@ export const i18n: { [k1: string]: { [k2: string]: string } } = {
       aboutUs: 'O nas',
       contactUs: 'Kontakt',
       legal: 'Informacje prawne',
-      privacy: 'Polityka prywatności'
+      privacy: 'Polityka prywatności',
+      terms: 'Regulamin'
     },
   } as const;
