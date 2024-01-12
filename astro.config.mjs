@@ -4,6 +4,7 @@ import mdx from '@astrojs/mdx';
 import tailwind from "@astrojs/tailwind";
 import remarkToc from 'remark-toc';
 import remarkMermaid from 'astro-diagram/remark-mermaid';
+import cookieconsent from "@jop-software/astro-cookieconsent";
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,8 +20,23 @@ export default defineConfig({
       // disable default injected base.css
       applyBaseStyles: false,
       configFile: './tailwind.config.cjs'
-    }
-    )],
+    }),
+    cookieconsent({
+      gui_options: {
+          consent_modal: {
+              layout: 'cloud',               // box/cloud/bar
+              position: 'bottom center',     // bottom/middle/top + left/right/center
+              transition: 'slide',           // zoom/slide
+              swap_buttons: false            // enable to invert buttons
+          },
+          settings_modal: {
+              layout: 'box',                 // box/bar
+              // position: 'left',           // left/right
+              transition: 'slide'            // zoom/slide
+          }
+      }
+  })
+  ],
   load: {
     unknown: 'src/pages/404.astro'
   },
