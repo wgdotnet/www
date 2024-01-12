@@ -16,7 +16,7 @@ export const i18n: { [k1: string]: { [k2: string]: string } } = {
       aboutUs: 'O nas',
       contactUs: 'Kontakt',
       legal: 'Informacje prawne',
-      privacy: 'Polityka prywatności',
+      privacy: 'Polityka ochrony danych osobowych',
       terms: 'Regulamin'
     },
   } as const;
