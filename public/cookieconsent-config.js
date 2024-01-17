@@ -70,7 +70,7 @@ cc.run({
                         description: 'We use cookies to ensure the basic functionalities of the website and to enhance your online experience.'
                     }, {
                         title: 'Strictly necessary cookies',
-                        description: 'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly',
+                        description: 'These cookies are essential for the proper functioning of the website. Without these cookies, the website would not work properly',
                         toggle: {
                             value: 'necessary',
                             enabled: true,
