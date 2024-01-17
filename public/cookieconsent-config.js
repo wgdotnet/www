@@ -2,43 +2,47 @@ var cc = initCookieConsent();
 
 var logo = '<img src="https://raw.githubusercontent.com/wgdotnet/public/main/img/svg/logo_black.svg" alt="Logo" loading="lazy" style="margin-left: -4px; margin-bottom: -5px; height: 35px">';
 
+// run plugin with config object
 cc.run({
     current_lang : 'en',
-    autoclear_cookies : true,                     // default: false
-    cookie_name: '_wgdotnet_cookie-consent',      // default: 'cc_cookie'
-    cookie_expiration : 90,                       // default: 182
-    page_scripts: true,                           // default: false
-    auto_language: 'document',                    // default: null; could also be 'browser' or 'document'
+    autoclear_cookies : true,                   // default: false
+    cookie_name: '_wgdotnet_cookie-consent',     // default: 'cc_cookie'
+    cookie_expiration : 90,                    // default: 182
+    page_scripts: true,                         // default: false
+    auto_language: 'document',                     // default: null; could also be 'browser' or 'document'
     force_consent: true,
-    remove_cookie_tables: true,                   // default: false
+    remove_cookie_tables: true,              // default: false
 
     gui_options: {
         consent_modal: {
-            layout: 'box',                        // box,cloud,bar
-            //position: 'bottom left',            // bottom,middle,top + left,right,center
-            transition: 'slide'                   // zoom,slide
+            layout: 'box',                      // box,cloud,bar
+            //position: 'bottom left',           // bottom,middle,top + left,right,center
+            transition: 'slide'                 // zoom,slide
         },
         settings_modal: {
-            layout: 'box',                        // box,bar
-            // position: 'left',                  // right,left (available only if bar layout selected)
-            transition: 'slide'                   // zoom,slide
+            layout: 'box',                      // box,bar
+            // position: 'left',                // right,left (available only if bar layout selected)
+            transition: 'slide'                 // zoom,slide
         }
     },
 
-    // onFirstAction: function(){
-    // },
+    onFirstAction: function(){
+        console.log('onFirstAction fired');
+    },
 
-    // onAccept: function (cookie) {
-    // },
+    onAccept: function (cookie) {
+        console.log('onAccept fired ...');
+    },
 
-    // onChange: function (cookie, changed_preferences) {
-    // },
+    onChange: function (cookie, changed_preferences) {
+        console.log('onChange fired ...');
+    },
 
     languages: {
         'en': {
             consent_modal: {
                 title: 'We use cookies!',
-                description: 'Hi, this website uses essential cookies to ensure its proper operation',
+                description: 'Hi, this website uses essential cookies to ensure its proper operation. <button type="button" data-cc="c-settings" class="cc-link">Settings</button>',
                 primary_btn: {
                     text: 'Accept all',
                     role: 'accept_all'
@@ -70,7 +74,7 @@ cc.run({
                         toggle: {
                             value: 'necessary',
                             enabled: true,
-                            readonly: true
+                            readonly: true          // cookie categories with readonly=true are all treated as "necessary cookies"
                         },
                         cookie_table: [
                           {
@@ -92,7 +96,7 @@ cc.run({
         'pl': {
           consent_modal: {
               title: 'Używamy plików cookie(s)!',
-              description: 'Witaj, ta strona używa plików cookie(s), by zapewnić jej poprawne działanie.<button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
+              description: 'Witaj, ta strona używa plików cookie(s), by zapewnić jej poprawne funkcjonowanie. <button type="button" data-cc="c-settings" class="cc-link">Ustawienia</button>',
               primary_btn: {
                   text: 'Zaakceptuj wszystkie',
                   role: 'accept_all'
