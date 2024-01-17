@@ -1,42 +1,44 @@
-import { defineConfig } from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
-import mdx from '@astrojs/mdx';
-import tailwind from "@astrojs/tailwind";
-import remarkMermaid from 'astro-diagram/remark-mermaid';
-import cookieconsent from "@jop-software/astro-cookieconsent";
+var cc = initCookieConsent();
 
 var logo = '<img src="https://raw.githubusercontent.com/wgdotnet/public/main/img/svg/logo_black.svg" alt="Logo" loading="lazy" style="margin-left: -4px; margin-bottom: -5px; height: 35px">';
 
-// https://astro.build/config
-export default defineConfig({
-  integrations: [
-    mdx({
-      syntaxHighlight: 'shiki',
-      shikiConfig: { theme: 'dracula' },
-      remarkPlugins: [remarkMermaid],
-      remarkRehype: { footnoteLabel: 'Footnotes' },
-      //gfm: false,
-    }),
-    tailwind({
-      // disable default injected base.css
-      applyBaseStyles: false,
-      configFile: './tailwind.config.cjs'
-    }),
-    cookieconsent({
-      gui_options: {
-          consent_modal: {
-              layout: 'cloud',               // box/cloud/bar
-              position: 'bottom center',     // bottom/middle/top + left/right/center
-              transition: 'slide',           // zoom/slide
-              swap_buttons: false            // enable to invert buttons
-          },
-          settings_modal: {
-              layout: 'box',                 // box/bar
-              position: 'left',           // left/right
-              transition: 'slide'            // zoom/slide
-          }
-      },
-      languages: {
+// run plugin with config object
+cc.run({
+    current_lang : 'en',
+    autoclear_cookies : true,                     // default: false
+    cookie_name: '_wgdotnet_cookie-consent',      // default: 'cc_cookie'
+    cookie_expiration : 90,                       // default: 182
+    page_scripts: true,                           // default: false
+    auto_language: 'document',                    // default: null; could also be 'browser' or 'document'
+    force_consent: true,
+    remove_cookie_tables: true,                   // default: false
+
+    gui_options: {
+        consent_modal: {
+            layout: 'box',                        // box,cloud,bar
+            //position: 'bottom left',            // bottom,middle,top + left,right,center
+            transition: 'slide'                   // zoom,slide
+        },
+        settings_modal: {
+            layout: 'box',                        // box,bar
+            // position: 'left',                  // right,left (available only if bar layout selected)
+            transition: 'slide'                   // zoom,slide
+        }
+    },
+
+    // onFirstAction: function(){
+    //     console.log('onFirstAction fired');
+    // },
+
+    // onAccept: function (cookie) {
+    //     console.log('onAccept fired ...');
+    // },
+
+    // onChange: function (cookie, changed_preferences) {
+    //     console.log('onChange fired ...');
+    // },
+
+    languages: {
         'en': {
             consent_modal: {
                 title: 'We use cookies!',
@@ -146,19 +148,5 @@ export default defineConfig({
           }
       }
     }
-  })
-  ],
-  load: {
-    unknown: 'src/pages/404.astro'
-  },
-  output: 'server',
-  adapter: cloudflare(),
-  // https://github.com/natemoo-re/astro-icon/issues/35#issuecomment-1578101502
-  vite: {
-    resolve: {
-      alias: {
-        "svgo": import.meta.env.PROD ? "svgo/dist/svgo.browser.js" : "svgo"
-      }
-    }
-  }
+
 });

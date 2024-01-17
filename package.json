@@ -11,10 +11,11 @@
     "sync": "astro sync"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^6.8.1",
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/node": "^5.3.6",
     "@astrojs/tailwind": "^4.0.0",
-    "@astrojs/cloudflare": "^6.8.1",
+    "@jop-software/astro-cookieconsent": "^2.0.0",
     "astro": "^2.10.12",
     "astro-diagram": "^0.7.0",
     "astro-heroicons": "^0.3.0",
