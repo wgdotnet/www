@@ -5,6 +5,8 @@ import tailwind from "@astrojs/tailwind";
 import remarkMermaid from 'astro-diagram/remark-mermaid';
 import cookieconsent from "@jop-software/astro-cookieconsent";
 
+var logo = '<img src="https://raw.githubusercontent.com/wgdotnet/public/main/img/svg/logo_black.svg" alt="Logo" loading="lazy" style="margin-left: -4px; margin-bottom: -5px; height: 35px">';
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
