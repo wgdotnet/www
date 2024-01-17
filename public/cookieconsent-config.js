@@ -5,24 +5,24 @@ var logo = '<img src="https://raw.githubusercontent.com/wgdotnet/public/main/img
 // run plugin with config object
 cc.run({
     current_lang : 'en',
-    autoclear_cookies : true,                   // default: false
-    cookie_name: '_wgdotnet_cookie-consent',     // default: 'cc_cookie'
-    cookie_expiration : 90,                    // default: 182
-    page_scripts: true,                         // default: false
-    auto_language: 'document',                     // default: null; could also be 'browser' or 'document'
+    autoclear_cookies : true,                     // default: false
+    cookie_name: '_wgdotnet_cookie-consent',      // default: 'cc_cookie'
+    cookie_expiration : 90,                       // default: 182
+    page_scripts: true,                           // default: false
+    auto_language: 'document',                    // default: null; could also be 'browser' or 'document'
     force_consent: true,
-    remove_cookie_tables: true,              // default: false
+    remove_cookie_tables: true,                   // default: false
 
     gui_options: {
         consent_modal: {
-            layout: 'box',                      // box,cloud,bar
-            //position: 'bottom left',           // bottom,middle,top + left,right,center
-            transition: 'slide'                 // zoom,slide
+            layout: 'box',                        // box,cloud,bar
+            //position: 'bottom left',            // bottom,middle,top + left,right,center
+            transition: 'slide'                   // zoom,slide
         },
         settings_modal: {
-            layout: 'box',                      // box,bar
-            // position: 'left',                // right,left (available only if bar layout selected)
-            transition: 'slide'                 // zoom,slide
+            layout: 'box',                        // box,bar
+            // position: 'left',                  // right,left (available only if bar layout selected)
+            transition: 'slide'                   // zoom,slide
         }
     },
 
