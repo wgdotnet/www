@@ -2,10 +2,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-#cc--main {
-  --cc-text: #111827;
-  --cc-btn-primary-bg: #6366f1;
-  --cc-btn-primary-text: #fff;
-  --cc-btn-primary-hover-bg: #818cf8;
-}
