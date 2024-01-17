@@ -74,7 +74,7 @@ cc.run({
                         toggle: {
                             value: 'necessary',
                             enabled: true,
-                            readonly: true          // cookie categories with readonly=true are all treated as "necessary cookies"
+                            readonly: true
                         },
                         cookie_table: [
                           {
@@ -134,8 +134,8 @@ cc.run({
                         {
                             col1: '^_wgdotnet',
                             col2: 'wgdotnet.pl',
-                            col3: '90(s)',
-                            col4: 'technical cookies',
+                            col3: '90 dni',
+                            col4: 'cookie(s) "techniczne"',
                             is_regex: true
                         }
                     ]
