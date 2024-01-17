@@ -26,17 +26,17 @@ cc.run({
         }
     },
 
-    onFirstAction: function(){
-        console.log('onFirstAction fired');
-    },
+    // onFirstAction: function(){
+    //     console.log('onFirstAction fired');
+    // },
 
-    onAccept: function (cookie) {
-        console.log('onAccept fired ...');
-    },
+    // onAccept: function (cookie) {
+    //     console.log('onAccept fired ...');
+    // },
 
-    onChange: function (cookie, changed_preferences) {
-        console.log('onChange fired ...');
-    },
+    // onChange: function (cookie, changed_preferences) {
+    //     console.log('onChange fired ...');
+    // },
 
     languages: {
         'en': {
